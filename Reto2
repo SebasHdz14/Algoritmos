@@ -1,0 +1,34 @@
+print("Calculadora de área de un triangulo")
+while True:
+    try:
+        lado_1 = float(input("¿Cuál es el valor del primer lado en cm: ? "))
+        assert (lado_1 >= 0)
+        break
+    except ValueError:
+        print("Valor no valido, prueba con otro")
+    except AssertionError:
+        print('Valor negativo, prueba con otro')
+
+while True:
+    try:
+        lado_2 = float(input("¿Cuál es el valor del segundo lado en cm: ? "))
+        assert (lado_2 <= 0)
+        break
+    except ValueError:
+        print("Valor no valido, prueba con otro")
+    except AssertionError:
+        print('Valor negativo, prueba con otro')
+while True:
+    try:
+        lado_3 = float(input("¿Cuál es el valor del tercer lado en cm: ? "))
+        assert (lado_3 <= 0)
+        break
+    except ValueError:
+        print("Valor no valido, prueba con otro")
+    except AssertionError:
+        print('Valor negativo, prueba con otro')
+
+s = float((lado_3+lado_2+lado_1)/2)
+rai = float((s)*(s-lado_1)*(s-lado_2)*(s-lado_3))
+result = pow(rai,1/2)
+print("Tu área es: ", result, " cm^2")
