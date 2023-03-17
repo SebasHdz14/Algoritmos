@@ -1,0 +1,46 @@
+print("Tienda de Saldos")
+while True:
+    try:
+        precio1 = float(input("¿Cuál es el valor de tu primer producto? $ "))
+        assert (precio1 >= 0)
+        break
+    except ValueError:
+        print("Precio no valido, prueba con otro")
+    except AssertionError:
+        print('Valor negativo, prueba con otro')
+
+while True:
+    try:
+        precio2 = float(input("¿Cuál es el valor de tu segundo producto? $ "))
+        assert (precio2 >= 0)
+        break
+    except ValueError:
+        print("Precio no valido, prueba con otro")
+    except AssertionError:
+        print('Valor negativo, prueba con otro')
+
+while True:
+    try:
+        precio3 = float(input("¿Cuál es el valor de tu tercer producto? $ "))
+        assert (precio3 >= 0)
+        break
+    except ValueError:
+        print("Precio no valido, prueba con otro")
+    except AssertionError:
+        print('Valor negativo, prueba con otro')
+
+if (precio1 > precio2 and precio3) or (precio1 == precio2 and precio1 > precio3) or \
+            (precio1 == precio3 and precio1 > precio2) or (precio1 == precio2 and precio3):
+    print("Tu precio a pagar es de: $", precio1)
+    ahorro = float(precio3+precio2)
+    print("Y tu ahorro es de: $", ahorro)
+elif (precio2 > precio1 and precio3) or (precio2 == precio3 and precio2 > precio1):
+    print("Tu precio a pagar es de: $", precio2)
+    ahorro = float(precio1 + precio3)
+    print("Y tu ahorro es de: $", ahorro)
+elif precio3 > precio1 and precio2:
+    print("Tu precio a pagar es de: $", precio3)
+    ahorro = float(precio1 + precio2)
+    print("Y tu ahorro es de: $", ahorro)
+
+# Use Elif porque en Python no hay Switch como tal
