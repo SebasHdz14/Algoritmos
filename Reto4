@@ -1,0 +1,75 @@
+"""Hacer un programa que reciba varios sueldos, obtenga el promedio, la cantidad menor y la mayor,
+así como el número de datos mayores al promedio.
+La principal aplicación del programa va a ser para los sueldos nacionales,
+así que trate que sus prueba reflejan la distribución salarial de México
+(con datos de IMSS, INEGI o cualquier otra fuente confiable)."""
+
+print("Proyecto 4")
+while True:
+  try:
+    n=int(input("¿Cuánto sueldos vas a ingresar? \n"))
+    assert n >= 0
+    break
+  except ValueError:
+    print("Opción no valida")
+  except AssertionError:
+    print("Datos no validos")
+import numpy as np #Libreria NUMPY necesaria para los array
+arreglo = np.arange(0,n)
+for i in range (0,n):
+  while True:
+    try:
+      print("Cuál es tu sueldo No.", i+1, "?")
+      sueldo = float(input("$ "))
+      assert sueldo >=0
+      break
+    except ValueError:
+      print("Opción no valida")
+    except AssertionError:
+      print("Datos no validos")
+  arreglo[i] = sueldo
+
+bucle = "s"
+
+while bucle == "s":
+  while True:
+    try:
+      print("¿Qué deseas saber?")
+      print("1.-Lista de los sueldos")
+      print("2.-Promedio de los sueldos")
+      print("3.-Valor máximo de los sueldos")
+      print("4.-Valor minimo de los sueldos")
+      print("5.-Conocer los sueldos mayores al promedio")
+      print("Presione cualquier otra tecla para salir")
+      opc = int(input())
+      assert opc>0 and opc <6
+      break
+    except ValueError:
+      print("Opción no valida, prueba con otra") ##Validación de datos tipo int
+    except AssertionError:
+      print('Opción no valida, prueba con otro') #Validación de datos positivos
+  if opc==1:
+    for k in range (0,n):
+     print("Tu sueldo No.", k+1, "es de $", arreglo[k])
+    print("¿Deseas hacer otra operación? s/n")
+    bucle = input()
+  elif opc == 2:
+    print("El promedio es de: $", arreglo.mean())
+    print("¿Deseas hacer otra operación? s/n")
+    bucle = input()
+  elif opc == 3:
+    print("El sueldo máximo es de: $",arreglo.max())
+    print("¿Deseas hacer otra operación? s/n")
+    bucle = input()
+  elif opc == 4:
+    print("El sueldo minimo es de: $",arreglo.min())
+    print("¿Deseas hacer otra operación? s/n")
+    bucle = input()
+  elif opc == 5:
+    prom = arreglo.mean()
+    print("Los sueldos que son igual o mayores al promedio son: ", arreglo[arreglo>=prom])
+
+
+  print("¿Deseas hacer otra operación? s/n")
+  bucle = input()
+print("Hasta luego")
